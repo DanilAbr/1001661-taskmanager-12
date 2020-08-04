@@ -1,78 +1,9 @@
 import {createSiteMenuTemplate} from './view/site-menu.js';
+import {createSiteFiltersElement} from './view/site-filters.js';
+import {createBoardTempalte} from './view/task.js';
+
 
 const TASK_COUNT = 3;
-
-const createSiteFiltersElement = () =>
-  `<section class="main__filter filter container">
-    <input
-      type="radio"
-      id="filter__all"
-      class="filter__input visually-hidden"
-      name="filter"
-      checked
-    />
-    <label for="filter__all" class="filter__label">
-      All <span class="filter__all-count">13</span></label
-    >
-    <input
-      type="radio"
-      id="filter__overdue"
-      class="filter__input visually-hidden"
-      name="filter"
-      disabled
-    />
-    <label for="filter__overdue" class="filter__label"
-      >Overdue <span class="filter__overdue-count">0</span></label
-    >
-    <input
-      type="radio"
-      id="filter__today"
-      class="filter__input visually-hidden"
-      name="filter"
-      disabled
-    />
-    <label for="filter__today" class="filter__label"
-      >Today <span class="filter__today-count">0</span></label
-    >
-    <input
-      type="radio"
-      id="filter__favorites"
-      class="filter__input visually-hidden"
-      name="filter"
-    />
-    <label for="filter__favorites" class="filter__label"
-      >Favorites <span class="filter__favorites-count">1</span></label
-    >
-    <input
-      type="radio"
-      id="filter__repeating"
-      class="filter__input visually-hidden"
-      name="filter"
-    />
-    <label for="filter__repeating" class="filter__label"
-      >Repeating <span class="filter__repeating-count">1</span></label
-    >
-    <input
-      type="radio"
-      id="filter__archive"
-      class="filter__input visually-hidden"
-      name="filter"
-    />
-    <label for="filter__archive" class="filter__label"
-      >Archive <span class="filter__archive-count">115</span></label
-    >
-  </section>`;
-
-const createBoardTempalte = () =>
-  `<section class="board container">
-    <div class="board__filter-list">
-      <a href="#" class="board__filter">SORT BY DEFAULT</a>
-      <a href="#" class="board__filter">SORT BY DATE up</a>
-      <a href="#" class="board__filter">SORT BY DATE down</a>
-    </div>
-
-    <div class="board__tasks"></div>
-  </section>`;
 
 const createTaskTemplate = () =>
   `<article class="card card--black">
