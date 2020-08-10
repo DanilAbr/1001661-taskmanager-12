@@ -68,7 +68,7 @@ export const generateTask = () => {
     };
 
   return {
-    descritpion: generateDescription(),
+    description: generateDescription(),
     dueDate,
     repeating,
     color: getRandomColor(),
