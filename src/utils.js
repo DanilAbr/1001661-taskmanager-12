@@ -7,3 +7,21 @@ export const getRandomInteger = (a = 0, b = 1) => {
 
 export const render = (container, template, position = `beforeend`) =>
   container.insertAdjacentHTML(position, template);
+
+export const isTaskExpired = (dueDate) => {
+  if (dueDate === null) {
+    return false;
+  }
+
+  let currentDate = new Date();
+  currentDate.setHours(23, 59, 59, 999);
+  currentDate = new Date(currentDate);
+
+  return currentDate > dueDate.getTime();
+};
+
+export const isTaskRepeating = (repeating) =>
+  Object.values(repeating).some(Boolean);
+
+export const humanizeTaskDueDate = (dueDate) =>
+  dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
