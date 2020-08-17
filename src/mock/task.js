@@ -44,6 +44,7 @@ const generateRepeating = () => {
 
 const getRandomColor = () => {
   const randomIndex = getRandomInteger(0, COLORS.length - 1);
+
   return COLORS[randomIndex];
 };
 
