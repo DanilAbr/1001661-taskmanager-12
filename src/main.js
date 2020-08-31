@@ -6,7 +6,7 @@ import {createLoadMoreButtonTemplate} from './view/load-button';
 import {createBoardTempalte} from './view/board.js';
 import {generateTask} from "./mock/task.js";
 import {generateFilter} from "./mock/filter.js";
-import {render} from './utils.js';
+import {renderTemplate} from './utils.js';
 
 const TASK_COUNT = 22;
 const TASK_COUNT_PER_STEP = 8;
@@ -17,23 +17,23 @@ const filters = generateFilter(tasks);
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
-render(siteHeaderElement, createSiteMenuTemplate());
-render(siteMainElement, createFilterTemplate(filters));
-render(siteMainElement, createBoardTempalte());
+renderTemplate(siteHeaderElement, createSiteMenuTemplate());
+renderTemplate(siteMainElement, createFilterTemplate(filters));
+renderTemplate(siteMainElement, createBoardTempalte());
 
 const boardElement = siteMainElement.querySelector(`.board`);
 const taskListElement = boardElement.querySelector(`.board__tasks`);
 
-render(taskListElement, createTaskEditTemplate(tasks[0]));
+renderTemplate(taskListElement, createTaskEditTemplate(tasks[0]));
 
 for (let i = 1; i < Math.min(tasks.length, TASK_COUNT_PER_STEP); i++) {
-  render(taskListElement, createTaskTemplate(tasks[i]));
+  renderTemplate(taskListElement, createTaskTemplate(tasks[i]));
 }
 
 if (tasks.length > TASK_COUNT_PER_STEP) {
   let renderedTaskCount = TASK_COUNT_PER_STEP;
 
-  render(boardElement, createLoadMoreButtonTemplate());
+  renderTemplate(boardElement, createLoadMoreButtonTemplate());
 
   const loadMoreButton = boardElement.querySelector(`.load-more`);
 
@@ -41,7 +41,7 @@ if (tasks.length > TASK_COUNT_PER_STEP) {
     evt.preventDefault();
     tasks
       .slice(renderedTaskCount, renderedTaskCount + TASK_COUNT_PER_STEP)
-      .forEach((task) => render(taskListElement, createTaskTemplate(task)));
+      .forEach((task) => renderTemplate(taskListElement, createTaskTemplate(task)));
 
     renderedTaskCount += TASK_COUNT_PER_STEP;
 
