@@ -1,4 +1,7 @@
-import {RenderPosition} from "./const";
+const RenderPosition = {
+  AFTERBEGIN: `afterbegin`,
+  BEFOREEND: `beforeend`,
+};
 
 const getRandomInteger = (a = 0, b = 1) => {
   const lower = Math.ceil(Math.min(a, b));
@@ -72,5 +75,6 @@ export {
   humanizeTaskDueDate,
   isTaskExpiringToday,
   renderElement,
-  createElement
+  createElement,
+  RenderPosition,
 };
