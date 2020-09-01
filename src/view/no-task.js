@@ -1,4 +1,4 @@
-﻿import {createElement} from "../utils.js";
+import {createElement} from "../utils.js";
 
 const createNoTaskTemplate = () => {
   return `<p class="board__no-tasks">
