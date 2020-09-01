@@ -1,3 +1,8 @@
+const RenderPosition = {
+  AFTERBEGIN: `afterbegin`,
+  BEFOREEND: `beforeend`,
+};
+
 const getRandomInteger = (a = 0, b = 1) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
@@ -5,8 +10,23 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-const render = (container, template, position = `beforeend`) =>
-  container.insertAdjacentHTML(position, template);
+const render = (container, element, place) => {
+  switch (place) {
+    case RenderPosition.AFTERBEGIN:
+      container.prepend(element);
+      break;
+    case RenderPosition.BEFOREEND:
+      container.append(element);
+      break;
+  }
+};
+
+const createElement = (template) => {
+  const newElement = document.createElement(`div`);
+  newElement.innerHTML = template;
+
+  return newElement.firstChild;
+};
 
 const getCurrentDate = () => {
   const currentDate = new Date();
@@ -35,10 +55,21 @@ const isTaskExpiringToday = (dueDate) => {
   return currentDate.getTime() === dueDate.getTime();
 };
 
-const isTaskRepeating = (repeating) =>
-  Object.values(repeating).some(Boolean);
+const isTaskRepeating = (repeating) => {
+  return Object.values(repeating).some(Boolean);
+};
 
-const humanizeTaskDueDate = (dueDate) =>
-  dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
+const humanizeTaskDueDate = (dueDate) => {
+  return dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
+};
 
-export {getRandomInteger, render, isTaskExpired, isTaskRepeating, humanizeTaskDueDate, isTaskExpiringToday};
+export {
+  getRandomInteger,
+  isTaskExpired,
+  isTaskRepeating,
+  humanizeTaskDueDate,
+  isTaskExpiringToday,
+  render,
+  createElement,
+  RenderPosition,
+};
