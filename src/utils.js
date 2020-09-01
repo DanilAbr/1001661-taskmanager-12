@@ -64,7 +64,7 @@ const humanizeTaskDueDate = (dueDate) => {
 };
 
 export {
-  getRandomInteger,
+  getRandomInteger, 
   isTaskExpired,
   isTaskRepeating,
   humanizeTaskDueDate,
