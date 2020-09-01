@@ -96,5 +96,4 @@ const renderBoard = (boardContainer, boardTasks) => {
 
 render(siteHeaderElement, new SiteMenuView().getElement(), RenderPosition.BEFOREEND);
 render(siteMainElement, new FilterView(filters).getElement(), RenderPosition.BEFOREEND);
-
 renderBoard(siteMainElement, tasks);
