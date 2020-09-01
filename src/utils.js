@@ -10,7 +10,7 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-const renderElement = (container, element, place) => {
+const render = (container, element, place) => {
   switch (place) {
     case RenderPosition.AFTERBEGIN:
       container.prepend(element);
@@ -19,10 +19,6 @@ const renderElement = (container, element, place) => {
       container.append(element);
       break;
   }
-};
-
-const renderTemplate = (container, template, place = `beforeend`) => {
-  return container.insertAdjacentHTML(place, template);
 };
 
 const createElement = (template) => {
@@ -69,12 +65,11 @@ const humanizeTaskDueDate = (dueDate) => {
 
 export {
   getRandomInteger,
-  renderTemplate,
   isTaskExpired,
   isTaskRepeating,
   humanizeTaskDueDate,
   isTaskExpiringToday,
-  renderElement,
+  render,
   createElement,
   RenderPosition,
 };
