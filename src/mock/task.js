@@ -67,7 +67,7 @@ export const generateTask = () => {
     dueDate,
     repeating,
     color: getRandomColor(),
-    isArchive: Boolean(getRandomInteger(0, 1)),
+    isArchive: true,
     isFavorite: Boolean(getRandomInteger(0, 1))
   };
 };
