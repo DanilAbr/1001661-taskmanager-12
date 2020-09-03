@@ -69,4 +69,11 @@ const sortTaskDown = (taskA, taskB) => {
   return taskB.dueDate.getTime() - taskA.dueDate.getTime();
 };
 
-export {isTaskExpired, isTaskRepeating, humanizeTaskDueDate, isTaskExpiringToday};
+export {
+  isTaskExpired,
+  isTaskRepeating,
+  humanizeTaskDueDate,
+  isTaskExpiringToday,
+  sortTaskUp,
+  sortTaskDown
+};
