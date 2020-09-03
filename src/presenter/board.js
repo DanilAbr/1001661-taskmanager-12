@@ -1,17 +1,17 @@
-import BoardView from './view/board.js';
-import SortView from './view/sort.js';
-import TaskListView from './view/task-list.js';
-import NoTaskView from './view/no-task.js';
-import TaskView from './view/task.js';
-import TaskEditView from './view/task-edit.js';
-import LoadMoreButtonView from './view/load-more-button';
-import {render, RenderPosition, replace, remove} from './utils/render.js';
+import BoardView from '../view/board.js';
+import SortView from '../view/sort.js';
+import TaskListView from '../view/task-list.js';
+import NoTaskView from '../view/no-task.js';
+import TaskView from '../view/task.js';
+import TaskEditView from '../view/task-edit.js';
+import LoadMoreButtonView from '../view/load-more-button';
+import {render, RenderPosition, replace, remove} from '../utils/render.js';
 
 const TASK_COUNT_PER_STEP = 8;
 
 export default class Board {
   constructor(boardContainer) {
-    this._boardComponent = boardContainer;
+    this._boardContainer = boardContainer;
 
     this._boardComponent = new BoardView();
     this._sortComponent = new SortView();
@@ -19,7 +19,7 @@ export default class Board {
     this._noTaskComponent = new NoTaskView();
   }
 
-  init(boardTask) {
+  init(boardTasks) {
     this._boardTasks = boardTasks.slice();
 
     render(this._boardContainer, this._boardComponent, RenderPosition.BEFOREEND);
@@ -62,7 +62,7 @@ export default class Board {
       document.removeEventListener(`keydown`, onEscKeyDown);
     });
 
-    render(this._taskListElement, taskComponent, RenderPosition.BEFOREEND);
+    render(this._taskListComponent, taskComponent, RenderPosition.BEFOREEND);
   }
 
   _renderTasks(from, to) {
