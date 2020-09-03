@@ -10,7 +10,7 @@ import NoTaskView from './view/no-task.js';
 import {generateTask} from "./mock/task.js";
 import {generateFilter} from "./mock/filter.js";
 import {render, RenderPosition, replace, remove} from './utils/render.js';
-import {TASK_COUNT, TASK_COUNT_PER_STEP} from './const.js';
+import {TASK_COUNT} from './const.js';
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
 const filters = generateFilter(tasks);
