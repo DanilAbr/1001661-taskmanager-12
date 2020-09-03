@@ -18,5 +18,4 @@ const boardPresenter = new BoardPresenter(siteMainElement);
 render(siteHeaderElement, new SiteMenuView(), RenderPosition.BEFOREEND);
 render(siteMainElement, new FilterView(filters), RenderPosition.BEFOREEND);
 
-console.log(tasks)
 boardPresenter.init(tasks);
