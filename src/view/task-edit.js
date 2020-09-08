@@ -1,4 +1,4 @@
-import AbstractView from './abstract.js';
+import Smart from './smart.js';
 import {COLORS} from "../const.js";
 import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "../utils/task.js";
 
@@ -95,6 +95,8 @@ const createTaskEditTemplate = (data) => {
 
   const colorsTemplate = createTaskEditColorsTemplate(color);
 
+  const isSubmitDisabled = isRepeating && !isTaskRepeating(repeating);
+
   return `<article class="card card--edit card--${color} ${deadlineClassName} ${repeatingClassName}">
             <form class="card__form" method="get">
               <div class="card__inner">
@@ -131,7 +133,7 @@ const createTaskEditTemplate = (data) => {
                 </div>
 
                 <div class="card__status-btns">
-                  <button class="card__save" type="submit">save</button>
+                  <button class="card__save" type="submit" ${isSubmitDisabled ? `disabled` : ``}>save</button>
                   <button class="card__delete" type="button">delete</button>
                 </div>
               </div>
@@ -139,16 +141,97 @@ const createTaskEditTemplate = (data) => {
           </article>`;
 };
 
-export default class TaskEdit extends AbstractView {
+export default class TaskEdit extends Smart {
   constructor(task = BLANK_TASK) {
     super();
     this._data = TaskEdit.parseTaskToData(task);
 
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
+    this._descriptionInputHandler = this._descriptionInputHandler.bind(this);
+    this._dueDateToggleHandler = this._dueDateToggleHandler.bind(this);
+    this._repeatingToggleHandler = this._repeatingToggleHandler.bind(this);
+    this._repeatingChangeHandler = this._repeatingChangeHandler.bind(this);
+    this._colorChangeHandler = this._colorChangeHandler.bind(this);
+
+    this._setInnerHandlers();
+  }
+
+  reset(task) {
+    this.updateData(
+        TaskEdit.parseTaskToData(task)
+    );
   }
 
   getTemplate() {
     return createTaskEditTemplate(this._data);
+  }
+
+  restoreHandlers() {
+    this._setInnerHandlers();
+    this.setFormSubmitHandler(this._callback.formSubmit);
+  }
+
+  _setInnerHandlers() {
+    this.getElement()
+      .querySelector(`.card__date-deadline-toggle`)
+      .addEventListener(`click`, this._dueDateToggleHandler);
+    this.getElement()
+      .querySelector(`.card__repeat-toggle`)
+      .addEventListener(`click`, this._repeatingToggleHandler);
+    this.getElement()
+      .querySelector(`.card__text`)
+      .addEventListener(`input`, this._descriptionInputHandler);
+
+    if (this._data.isRepeating) {
+      this.getElement()
+        .querySelector(`.card__repeat-days-inner`)
+        .addEventListener(`change`, this._repeatingChangeHandler);
+    }
+
+    this.getElement()
+      .querySelector(`.card__colors-wrap`)
+      .addEventListener(`change`, this._colorChangeHandler);
+  }
+
+  _dueDateToggleHandler(evt) {
+    evt.preventDefault();
+    this.updateData({
+      isDueDate: !this._data.isDueDate,
+      isRepeating: !this._data.isDueDate && false
+    });
+  }
+
+  _repeatingToggleHandler(evt) {
+    evt.preventDefault();
+    this.updateData({
+      isRepeating: !this._data.isRepeating,
+      isDueDate: !this._data.isRepeating && false
+    });
+  }
+
+  _descriptionInputHandler(evt) {
+    evt.preventDefault();
+    this.updateData({
+      description: evt.target.value
+    }, true);
+  }
+
+  _repeatingChangeHandler(evt) {
+    evt.preventDefault();
+    this.updateData({
+      repeating: Object.assign(
+          {},
+          this._data.repeating,
+          {[evt.target.value]: evt.target.checked}
+      )
+    });
+  }
+
+  _colorChangeHandler(evt) {
+    evt.preventDefault();
+    this.updateData({
+      color: evt.target.value
+    });
   }
 
   _formSubmitHandler(evt) {
