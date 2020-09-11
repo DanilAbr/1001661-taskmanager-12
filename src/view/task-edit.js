@@ -1,5 +1,5 @@
-import AbstractView from './abstract.js';
-import {COLORS} from "../const.js";
+import AbstractView from './abstract';
+import {COLORS} from "../const";
 import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "../utils/task.js";
 
 const BLANK_TASK = {
