@@ -1,9 +1,9 @@
-import SiteMenuView from './view/site-menu.js';
-import FilterView from './view/filter.js';
-import {generateTask} from './mock/task.js';
-import {generateFilter} from './mock/filter.js';
-import BoardPresenter from './presenter/board.js';
-import {render, RenderPosition} from './utils/render.js';
+import SiteMenuView from './view/site-menu';
+import FilterView from './view/filter';
+import {generateTask} from './mock/task';
+import {generateFilter} from './mock/filter';
+import BoardPresenter from './presenter/board';
+import {render, RenderPosition} from './utils/render';
 
 const TASK_COUNT = 22;
 
