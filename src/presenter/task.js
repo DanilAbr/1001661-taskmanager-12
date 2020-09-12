@@ -1,4 +1,4 @@
-﻿import TaskView from '../view/task.js';
+import TaskView from '../view/task.js';
 import TaskEditView from '../view/task-edit.js';
 import {render, RenderPosition, replace, remove} from '../utils/render.js';
 
