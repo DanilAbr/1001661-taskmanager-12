@@ -1,5 +1,5 @@
-import {COLORS} from "../const.js";
-import {getRandomInteger} from "../utils/common.js";
+import {COLORS} from "../const";
+import {getRandomInteger} from "../utils/common";
 
 const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
 

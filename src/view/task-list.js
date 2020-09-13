@@ -1,4 +1,4 @@
-import AbstractView from './abstract.js';
+import AbstractView from './abstract';
 
 const createTaskList = () => {
   return `<div class="board__tasks"></div>`;

@@ -5,17 +5,17 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-const updateItem = (items, update) => {
-  const index = items.findIndex((item) => item.id === update.id);
+const updateItem = (array, update) => {
+  const index = array.findIndex((item) => item.id === update.id);
 
   if (index === -1) {
-    return items;
+    return array;
   }
 
   return [
-    ...items.slice(0, index),
+    ...array.slice(0, index),
     update,
-    ...items.slice(index + 1)
+    ...array.slice(index + 1)
   ];
 };
 
