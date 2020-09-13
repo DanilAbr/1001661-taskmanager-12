@@ -17,7 +17,7 @@ const taskToFilterMap = {
   archive: (tasks) => tasks.filter((task) => task.isArchive).length,
 };
 
-export const generateFilter = (tasks) => {
+const generateFilter = (tasks) => {
   return Object.entries(taskToFilterMap).map(([filterName, countTasks]) => {
     return {
       name: filterName,
@@ -25,3 +25,5 @@ export const generateFilter = (tasks) => {
     };
   });
 };
+
+export {generateFilter};
