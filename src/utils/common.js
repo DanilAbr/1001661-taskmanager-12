@@ -5,4 +5,18 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-export {getRandomInteger};
+const updateItem = (array, update) => {
+  const index = array.findIndex((item) => item.id === update.id);
+
+  if (index === -1) {
+    return array;
+  }
+
+  return [
+    ...array.slice(0, index),
+    update,
+    ...array.slice(index + 1)
+  ];
+};
+
+export {getRandomInteger, updateItem};

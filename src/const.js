@@ -1,4 +1,5 @@
 const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+const TASK_COUNT = 22;
 
 const SortType = {
   DEFAULT: `default`,
@@ -6,4 +7,4 @@ const SortType = {
   DATE_UP: `date-up`
 };
 
-export {COLORS, SortType};
+export {COLORS, SortType, TASK_COUNT};
