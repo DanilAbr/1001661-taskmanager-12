@@ -74,3 +74,4 @@ export const generateTask = () => {
     isFavorite: Boolean(getRandomInteger(0, 1))
   };
 };
+
