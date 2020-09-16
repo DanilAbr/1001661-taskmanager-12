@@ -4,7 +4,7 @@
   }
 
   addObserver(observer) {
-    this._Obsorvers.push(observer);
+    this._observers.push(observer);
   }
 
   removeObserver(observer) {
