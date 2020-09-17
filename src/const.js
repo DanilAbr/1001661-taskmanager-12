@@ -1,5 +1,4 @@
 const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
-const TASK_COUNT = 22;
 
 const SortType = {
   DEFAULT: `default`,
@@ -19,4 +18,4 @@ const UpdateType = {
   MAJOR: `MAJOR`
 };
 
-export {COLORS, SortType, TASK_COUNT, UpdateType, UserAction};
+export {COLORS, SortType, UpdateType, UserAction};

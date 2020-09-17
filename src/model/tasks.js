@@ -1,4 +1,4 @@
-﻿import Observer from '../utils/observer';
+import Observer from '../utils/observer';
 
 export default class Tasks extends Observer {
   constructor() {
@@ -30,7 +30,7 @@ export default class Tasks extends Observer {
     this._notify(updateType, update);
   }
 
-  addTak(updateType, update) {
+  addTask(updateType, update) {
     this._tasks = [
       update,
       ...this._tasks
@@ -43,7 +43,7 @@ export default class Tasks extends Observer {
     const index = this._tasks.findIndex((task) => task.id === update.id);
 
     if (index === -1) {
-      throw new Error(`Can't delet unexisting task`);
+      throw new Error(`Can't delete  unexisting task`);
     }
 
     this._tasks = [

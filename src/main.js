@@ -5,7 +5,8 @@ import {generateFilter} from './mock/filter';
 import BoardPresenter from './presenter/board';
 import TasksModel from './model/tasks';
 import {render, RenderPosition} from './utils/render';
-import {TASK_COUNT} from './const';
+
+const TASK_COUNT = 22;
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
 const filters = generateFilter(tasks);
