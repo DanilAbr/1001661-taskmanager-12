@@ -14,7 +14,7 @@ const isTaskExpired = (dueDate) => {
 
   const currentDate = getCurrentDate();
 
-  return currentDate > dueDate.getTime();
+  return moment(currentDate).isAfter(dueDate, `day`);
 };
 
 const isTaskExpiringToday = (dueDate) => {
@@ -24,7 +24,7 @@ const isTaskExpiringToday = (dueDate) => {
 
   const currentDate = getCurrentDate();
 
-  return currentDate.getTime() === dueDate.getTime();
+  return moment(dueDate).isSame(currentDate, `day`);
 };
 
 const isTaskRepeating = (repeating) => {
@@ -75,11 +75,20 @@ const sortTaskDown = (taskA, taskB) => {
   return taskB.dueDate.getTime() - taskA.dueDate.getTime();
 };
 
+const isDatesEqual = (dateA, dateB) => {
+  if (dateA === null && dateB === null) {
+    return true;
+  }
+
+  return moment(dateA).isSame(dateB, `day`);
+}
+
 export {
   isTaskExpired,
   isTaskRepeating,
   formatTaskDueDate,
   isTaskExpiringToday,
   sortTaskUp,
-  sortTaskDown
+  sortTaskDown,
+  isDatesEqual
 };
