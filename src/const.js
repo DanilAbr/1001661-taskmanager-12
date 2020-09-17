@@ -18,4 +18,13 @@ const UpdateType = {
   MAJOR: `MAJOR`
 };
 
-export {COLORS, SortType, UpdateType, UserAction};
+const FilterType = {
+  ALL: `ALL`,
+  OVERDUE: `OVERDUE`,
+  TODAY: `TODAY`,
+  FAVORITES: `FAVORITES`,
+  REPEATING: `REPEATING`,
+  ARCHIVE: `ARCHIVE`
+};
+
+export {COLORS, SortType, UpdateType, UserAction, FilterType};

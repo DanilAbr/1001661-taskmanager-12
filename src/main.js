@@ -14,6 +14,8 @@ const filters = generateFilter(tasks);
 const tasksModel = new TasksModel();
 tasksModel.setTasks(tasks);
 
+const filterModel = new filterModel();
+
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
