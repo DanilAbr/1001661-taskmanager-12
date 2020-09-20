@@ -27,4 +27,17 @@ const FilterType = {
   ARCHIVE: `ARCHIVE`
 };
 
-export {COLORS, SortType, UpdateType, UserAction, FilterType};
+const MenuItem = {
+  ADD_NEW_TASK: `ADD_NEW_TASK`,
+  TASKS: `TASKS`,
+  STATISTICS: `STATISTICS`
+};
+
+export {
+  COLORS,
+  SortType,
+  UpdateType,
+  UserAction,
+  FilterType,
+  MenuItem
+};

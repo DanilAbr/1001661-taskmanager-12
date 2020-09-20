@@ -81,7 +81,7 @@ const isDatesEqual = (dateA, dateB) => {
   }
 
   return moment(dateA).isSame(dateB, `day`);
-}
+};
 
 export {
   isTaskExpired,
@@ -90,5 +90,6 @@ export {
   isTaskExpiringToday,
   sortTaskUp,
   sortTaskDown,
-  isDatesEqual
+  isDatesEqual,
+  getCurrentDate
 };

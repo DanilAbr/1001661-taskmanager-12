@@ -1,4 +1,4 @@
-﻿import {FilterType} from '../const';
+import {FilterType} from '../const';
 import {isTaskExpired, isTaskExpiringToday, isTaskRepeating} from './task';
 
 const filter = {
