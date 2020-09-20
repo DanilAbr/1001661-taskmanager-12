@@ -1,6 +1,6 @@
-import SmartView from "./smart.js";
-import {COLORS} from "../const.js";
-import {isTaskRepeating, formatTaskDueDate} from "../utils/task.js";
+import SmartView from "./smart";
+import {COLORS} from "../const";
+import {isTaskRepeating, formatTaskDueDate} from "../utils/task";
 import flatpickr from "flatpickr";
 import he from 'he';
 
