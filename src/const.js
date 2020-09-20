@@ -1,4 +1,12 @@
-const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+const Color = {
+  BLACK: `black`,
+  YELLOW: `yellow`,
+  BLUE: `blue`,
+  GREEN: `green`,
+  PINK: `pink`
+};
+
+const COLORS = Object.values(Color);
 
 const SortType = {
   DEFAULT: `default`,
@@ -34,6 +42,7 @@ const MenuItem = {
 };
 
 export {
+  Color,
   COLORS,
   SortType,
   UpdateType,
